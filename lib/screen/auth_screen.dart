@@ -24,6 +24,7 @@ class _AuthScreenState extends State<AuthScreen> {
   var _enteredPassword = '';
   var _enteredUsername = '';
   var _enteredDepartment = '';
+  // ignore: unused_field
   var _status = '';
   File? _selectedImage;
 
