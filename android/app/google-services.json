@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "855529549172",
+    "project_id": "pdp-conference-2023",
+    "storage_bucket": "pdp-conference-2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855529549172:android:25638b81c84968342b1021",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855529549172-dkgf232hn4nn5i8lcivm3tp4s9afnito.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtfNX8hrvZjsykAly2PiL6DCoZ_cuE2m4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855529549172-dkgf232hn4nn5i8lcivm3tp4s9afnito.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
