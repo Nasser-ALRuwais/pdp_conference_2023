@@ -1,3 +1,5 @@
+import '../widgets/drawer.dart';
+
 import '../widgets/chat_message.dart';
 import '../widgets/new_message.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -5,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class ChatScreen extends StatefulWidget {
+  static const routeName = '/chat-screen';
   const ChatScreen({super.key});
 
   @override
@@ -30,17 +33,9 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: const DrawerWidget(),
         appBar: AppBar(
           title: const Text("FlutterChat"),
-          actions: [
-            IconButton(
-              onPressed: () => FirebaseAuth.instance.signOut(),
-              icon: Icon(
-                Icons.exit_to_app,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            ),
-          ],
         ),
         body: const Column(
           children: [

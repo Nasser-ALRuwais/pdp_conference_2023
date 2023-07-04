@@ -30,10 +30,7 @@ class ChatMessage extends StatelessWidget {
         }
 
         final loadedMessages = snapshot.data!.docs;
-        for (var doc in loadedMessages) {
-          print(doc.data()['text']);
-        }
-        print(authenticatedUser!.uid);
+
         return ListView.builder(
           padding: const EdgeInsets.only(
             bottom: 40,
@@ -59,14 +56,14 @@ class ChatMessage extends StatelessWidget {
             if (nextUserIsSame) {
               return MessageBubble.next(
                   message: chatMessage['text'],
-                  isMe: authenticatedUser.uid ==
+                  isMe: authenticatedUser!.uid ==
                       currentMessageUserId); //compare the logged in user ID with the current chat message user ID
             } else {
               return MessageBubble.first(
                 userImage: chatMessage['imageUrl'],
                 username: chatMessage['username'],
                 message: chatMessage['text'],
-                isMe: authenticatedUser.uid == currentMessageUserId,
+                isMe: authenticatedUser!.uid == currentMessageUserId,
               );
             }
           },

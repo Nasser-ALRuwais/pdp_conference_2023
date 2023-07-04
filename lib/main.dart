@@ -1,3 +1,5 @@
+import './screen/main_screen.dart';
+
 import './screen/auth_screen.dart';
 import './screen/chat.dart';
 import './screen/splash.dart';
@@ -30,17 +32,22 @@ class App extends StatelessWidget {
             seedColor: const Color.fromARGB(255, 56, 106, 32)),
       ),
       home: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
+        stream: FirebaseAuth.instance.userChanges(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const SplashScreen();
           }
-          if (snapshot.hasData) {
-            return const ChatScreen();
-          }
-          return const AuthScreen();
+          return snapshot.data != null
+              ? const MainScreen()
+              : const AuthScreen();
         },
       ),
+      routes: {
+        MainScreen.routeName: (context) => const MainScreen(),
+        AuthScreen.routeName: (context) => const AuthScreen(),
+        ProfileScreen.routeName: (context) => const ProfileScreen(),
+        ChatScreen.routeName: (context) => const ChatScreen(),
+      },
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import '../Helper/randomColors.dart';
+import '../Helper/random_colors.dart';
 
 import '../widgets/user_image_picker.dart';
 
@@ -9,6 +9,7 @@ import '../Helper/auth.dart';
 import '../Helper/user.dart';
 
 class AuthScreen extends StatefulWidget {
+  static const routeName = '/auth-screen';
   const AuthScreen({super.key});
 
   @override
@@ -24,7 +25,7 @@ class _AuthScreenState extends State<AuthScreen> {
   var _enteredPassword = '';
   var _enteredUsername = '';
   var _enteredDepartment = '';
-  var _status = '';
+
   File? _selectedImage;
 
   void _isSubmit() async {
@@ -50,15 +51,35 @@ class _AuthScreenState extends State<AuthScreen> {
       final auth = Auth(user: user);
 
       if (_isLogin) {
-        _status = await auth.signIn();
+        final result = await auth.signIn();
         setState(() {
           _loading = false;
         });
+        if (result == 'success' && context.mounted) {
+          Navigator.of(context).pushReplacementNamed('/main-screen');
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(result),
+              backgroundColor: Theme.of(context).colorScheme.error,
+            ),
+          );
+        }
       } else {
-        _status = await auth.signUp();
+        final result = await auth.signUp();
         setState(() {
           _loading = false;
         });
+        if (result == 'success' && context.mounted) {
+          Navigator.of(context).pushReplacementNamed('/main-screen');
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(result),
+              backgroundColor: Theme.of(context).colorScheme.error,
+            ),
+          );
+        }
       }
     }
   }
