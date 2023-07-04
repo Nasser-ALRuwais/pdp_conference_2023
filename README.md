@@ -16,11 +16,11 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 ## Configuration
-To ensure no compatibility issues in your side please ensure you have Flutter version 3.10.5 installed on your machine.
+To ensure no compatibility issues in your side please make sure you have Flutter version 3.10.5 installed on your machine.
 
 To connect to the backend you will need the below tools:
 
- - [npm](https://www.knowledgehut.com/blog/web-development/install-nodejs-npm-on-windows) this will be need to install the below
+ - [npm](https://www.knowledgehut.com/blog/web-development/install-nodejs-npm-on-windows) this will be needed to install the below
  - [Firebase-CLI](https://firebase.google.com/docs/cli)
  - [FlutterFire-CLI](https://firebase.flutter.dev/docs/cli/)
 
