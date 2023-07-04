@@ -63,8 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '855529549172',
     projectId: 'pdp-conference-2023',
     storageBucket: 'pdp-conference-2023.appspot.com',
-    iosClientId:
-        '855529549172-6p9bd8m5ok9oeat973ko44jp29he2126.apps.googleusercontent.com',
+    iosClientId: '855529549172-6p9bd8m5ok9oeat973ko44jp29he2126.apps.googleusercontent.com',
     iosBundleId: 'com.example.chatApp',
   );
 }
