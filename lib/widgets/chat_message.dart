@@ -55,15 +55,21 @@ class ChatMessage extends StatelessWidget {
 
             if (nextUserIsSame) {
               return MessageBubble.next(
-                  message: chatMessage['text'],
-                  isMe: authenticatedUser!.uid ==
-                      currentMessageUserId); //compare the logged in user ID with the current chat message user ID
+                message: chatMessage['text'],
+                isMe: authenticatedUser!.uid == currentMessageUserId,
+                userId: authenticatedUser.uid == currentMessageUserId
+                    ? currentMessageUserId.toString()
+                    : authenticatedUser.uid,
+              ); //compare the logged in user ID with the current chat message user ID
             } else {
               return MessageBubble.first(
                 userImage: chatMessage['imageUrl'],
                 username: chatMessage['username'],
                 message: chatMessage['text'],
                 isMe: authenticatedUser!.uid == currentMessageUserId,
+                userId: authenticatedUser.uid == currentMessageUserId
+                    ? currentMessageUserId.toString()
+                    : authenticatedUser.uid,
               );
             }
           },

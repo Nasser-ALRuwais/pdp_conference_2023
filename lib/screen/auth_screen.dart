@@ -55,6 +55,7 @@ class _AuthScreenState extends State<AuthScreen> {
         setState(() {
           _loading = false;
         });
+        print(result);
         if (result == 'success' && context.mounted) {
           Navigator.of(context).pushReplacementNamed('/main-screen');
         } else {
@@ -87,7 +88,7 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -104,6 +105,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 child: Image.asset("./assets/images/chat.png"),
               ),
               Card(
+                elevation: 5,
                 margin: const EdgeInsets.all(20),
                 child: SingleChildScrollView(
                   child: Padding(
@@ -217,9 +219,8 @@ class _AuthScreenState extends State<AuthScreen> {
                                 ),
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: Theme.of(context)
-                                        .colorScheme
-                                        .primaryContainer,
+                                    backgroundColor:
+                                        Theme.of(context).colorScheme.onPrimary,
                                   ),
                                   onPressed: _isSubmit,
                                   child: Text(_isLogin ? "Log in" : "Sign up"),

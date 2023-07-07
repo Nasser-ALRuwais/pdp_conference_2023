@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import '../Helper/db_helper.dart';
 
 // A MessageBubble for showing a single chat message on the ChatScreen.
 class MessageBubble extends StatelessWidget {
@@ -9,6 +11,7 @@ class MessageBubble extends StatelessWidget {
     required this.username,
     required this.message,
     required this.isMe,
+    required this.userId,
   }) : isFirstInSequence = true;
 
   // Create a message bubble that continues the sequence.
@@ -16,6 +19,7 @@ class MessageBubble extends StatelessWidget {
     super.key,
     required this.message,
     required this.isMe,
+    required this.userId,
   })  : isFirstInSequence = false,
         userImage = null,
         username = null;
@@ -26,6 +30,8 @@ class MessageBubble extends StatelessWidget {
   // shows user image for the first message from the same user, and changes
   // the shape of the bubble for messages thereafter.
   final bool isFirstInSequence;
+
+  final String userId;
 
   // Image of the user to be displayed next to the bubble.
   // Not required if the message is not the first in a sequence.
@@ -82,9 +88,9 @@ class MessageBubble extends StatelessWidget {
                       ),
                       child: Text(
                         username!,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: theme.colorScheme.surface,
                         ),
                       ),
                     ),
@@ -93,7 +99,7 @@ class MessageBubble extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       color: isMe
-                          ? Colors.grey[300]
+                          ? theme.colorScheme.surface
                           : theme.colorScheme.secondary.withAlpha(200),
                       // Only show the message bubble's "speaking edge" if first in
                       // the chain.

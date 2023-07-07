@@ -80,6 +80,9 @@ class Auth {
         return "Password is wrong";
       }
     }
+    if (_firebase.currentUser == null) {
+      return "Could not sign in. Check if you are connected to a network.";
+    }
     return 'success';
   }
 }

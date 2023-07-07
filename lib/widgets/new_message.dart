@@ -54,22 +54,19 @@ class _NewMessageState extends State<NewMessage> {
               textCapitalization: TextCapitalization.sentences,
               autocorrect: true,
               enableSuggestions: true,
-              decoration: const InputDecoration(labelText: 'Send a message...'),
+              decoration: InputDecoration(
+                labelText: 'Send a message...',
+                fillColor: Theme.of(context).colorScheme.surface,
+                filled: true,
+              ),
               controller: _messageController,
             ),
           ),
           IconButton(
-            color: Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).colorScheme.surface,
             onPressed: _submitMessage,
             icon: const Icon(
               Icons.send,
-            ),
-          ),
-          IconButton(
-            color: Theme.of(context).colorScheme.primary,
-            onPressed: () => addMessageToDb({"text": 'hello'}),
-            icon: const Icon(
-              Icons.abc,
             ),
           ),
         ],
