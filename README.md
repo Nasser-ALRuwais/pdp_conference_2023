@@ -32,6 +32,6 @@ To connect to the backend you will need the below tools:
 
  ## FlutterFlow
  - If you want access to edit please share your personal email with me to add you to the project.
- - If you are planning an developing a page please share with the group what page you are planning to work on. 
+ - If you are planning on developing a page please share with the group what page you are planning to work on. 
  - This is a link where you can only view the project https://app.flutterflow.io/project/p-d-pv1-dqq41s
  
