@@ -29,3 +29,9 @@ To connect to the backend you will need the below tools:
  After logging into firebase, navigate to the project's path and run the command "flutterfire configure" to configure firebase for your project. Go through the configuration process making sure to only select ios and android when it asks which platforms should you configuration support.
 
  The application should now run in your machine.
+
+ ## FlutterFlow
+ - If you want access to edit please share your personal email with me to add you to the project.
+ - If you are planning on developing a page please share with the group what page you are planning to work on. 
+ - This is a link where you can only view the project https://app.flutterflow.io/project/p-d-pv1-dqq41s
+ 
