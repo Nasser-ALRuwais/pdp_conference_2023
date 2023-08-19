@@ -24,7 +24,7 @@ class DrawerWidget extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 40,
-                  backgroundImage: AssetImage('assets/images/chat.png'),
+                  backgroundImage: AssetImage('assets/images/logo.png'),
                 ),
                 SizedBox(
                   height: 10,

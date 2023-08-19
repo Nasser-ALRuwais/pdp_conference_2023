@@ -1,4 +1,8 @@
+import 'package:pdp_conference_2023/screen/sign_in.dart';
+import 'package:pdp_conference_2023/screen/sign_up.dart';
+
 import './screen/main_screen.dart';
+import './screen/main_screen1.dart' as main_screen1;
 
 import './screen/auth_screen.dart';
 import './screen/chat.dart';
@@ -26,8 +30,9 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'FlutterChat',
-      theme: ThemeData().copyWith(
+      theme: ThemeData(fontFamily: "Spline Sans").copyWith(
         useMaterial3: true,
+
         colorScheme: const ColorScheme(
           brightness: Brightness.dark,
           primary: Color(0xFF020F29),
@@ -50,7 +55,7 @@ class App extends StatelessWidget {
             return const SplashScreen();
           }
           return snapshot.data != null
-              ? const MainScreen()
+              ? const main_screen1.MainScreen()
               : const AuthScreen();
         },
       ),
@@ -59,6 +64,10 @@ class App extends StatelessWidget {
         AuthScreen.routeName: (context) => const AuthScreen(),
         ProfileScreen.routeName: (context) => const ProfileScreen(),
         ChatScreen.routeName: (context) => const ChatScreen(),
+        SignInScreen.routeName: (context) => const SignInScreen(),
+        SignUpScreen.routeName: (context) => const SignUpScreen(),
+        main_screen1.MainScreen.routeName: (context) =>
+            const main_screen1.MainScreen(),
       },
     );
   }
