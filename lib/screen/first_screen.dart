@@ -7,7 +7,6 @@ class FirstScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double baseWidth = MediaQuery.of(context).size.width;
     double fem = MediaQuery.of(context).size.width / baseWidth;
-    print(fem);
     double ffem = fem * 0.97;
     return Container(
       // iphone9DT (170:2143)

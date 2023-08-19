@@ -56,7 +56,6 @@ class _AuthScreenState extends State<AuthScreen> {
         setState(() {
           _loading = false;
         });
-        print(result);
         if (result == 'success' && context.mounted) {
           Navigator.of(context).pushReplacementNamed('/main-screen');
         } else {

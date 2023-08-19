@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pdp_conference_2023/widgets/main%20screen%20widgets/main_app_bar.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class MainScreen extends StatelessWidget {
   static const routeName = '/main-screen1';

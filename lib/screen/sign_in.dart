@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_final_fields
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -50,7 +52,6 @@ class _SignInScreenState extends State<SignInScreen> {
     setState(() {
       _loading = false;
     });
-    print(result);
     if (result == 'success' && context.mounted) {
       Navigator.of(context).pushReplacementNamed('/main-screen');
     } else {
