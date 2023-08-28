@@ -20,23 +20,21 @@ class ChatMessage extends StatelessWidget {
         }
         if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
           return const Center(
-            child: Text("no messages"),
+            child: Text(
+                "The timeline is empty!\nStart by sending your own thoughts"),
           );
         }
         if (snapshot.hasError) {
           return Center(
-            child: Text(snapshot.error.toString()),
+            child: Text(
+                "An error has been encountered: ${snapshot.error.toString()}"),
           );
         }
 
         final loadedMessages = snapshot.data!.docs;
 
         return ListView.builder(
-          padding: const EdgeInsets.only(
-            bottom: 40,
-            left: 13,
-            right: 13,
-          ),
+          padding: const EdgeInsets.only(bottom: 40),
           reverse: true,
           itemBuilder: (context, index) {
             final chatMessage =

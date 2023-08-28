@@ -65,7 +65,7 @@ class MessageBubble extends StatelessWidget {
         Container(
           // Add some margin to the edges of the messages, to allow space for the
           // user's image.
-          margin: const EdgeInsets.symmetric(horizontal: 46),
+          margin: const EdgeInsets.only(left: 46),
           child: Row(
             // The side of the chat screen the message should show at.
             mainAxisAlignment:

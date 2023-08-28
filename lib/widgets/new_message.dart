@@ -44,32 +44,29 @@ class _NewMessageState extends State<NewMessage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 1, bottom: 14),
-      child: Row(
-        children: [
-          Expanded(
-            child: TextFormField(
-              textCapitalization: TextCapitalization.sentences,
-              autocorrect: true,
-              enableSuggestions: true,
-              decoration: InputDecoration(
+    return Row(
+      children: [
+        Expanded(
+          child: TextFormField(
+            textCapitalization: TextCapitalization.sentences,
+            autocorrect: true,
+            enableSuggestions: true,
+            decoration: InputDecoration(
                 labelText: 'Send a message...',
                 fillColor: Theme.of(context).colorScheme.surface,
                 filled: true,
-              ),
-              controller: _messageController,
-            ),
+                floatingLabelBehavior: FloatingLabelBehavior.never),
+            controller: _messageController,
           ),
-          IconButton(
-            color: Theme.of(context).colorScheme.surface,
-            onPressed: _submitMessage,
-            icon: const Icon(
-              Icons.send,
-            ),
+        ),
+        IconButton(
+          color: Theme.of(context).colorScheme.surface,
+          onPressed: _submitMessage,
+          icon: const Icon(
+            Icons.send,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -1,5 +1,3 @@
-import '../widgets/drawer.dart';
-
 import '../widgets/chat_message.dart';
 import '../widgets/new_message.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -31,17 +29,11 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        drawer: const DrawerWidget(),
-        appBar: AppBar(
-          title: const Text("FlutterChat"),
-        ),
-        body: const Column(
-          children: [
-            Expanded(child: ChatMessage()),
-            NewMessage(),
-          ],
-        ));
+    return Column(
+      children: [
+        Expanded(child: ChatMessage()),
+        NewMessage(),
+      ],
+    );
   }
 }

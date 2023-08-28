@@ -2,12 +2,12 @@ import 'dart:io';
 
 import 'package:pdp_conference_2023/screen/first_screen.dart';
 
-import '../Helper/random_colors.dart';
+import '../firebase/random_colors.dart';
 import '../widgets/user_image_picker.dart';
 
 import 'package:flutter/material.dart';
-import '../Helper/auth.dart';
-import '../Helper/user.dart';
+import '../firebase/auth.dart';
+import '../firebase/user.dart';
 
 class AuthScreen extends StatefulWidget {
   static const routeName = '/auth-screen';
@@ -28,62 +28,6 @@ class _AuthScreenState extends State<AuthScreen> {
   var _enteredDepartment = '';
 
   File? _selectedImage;
-
-  void _isSubmit() async {
-    final isValid = _key.currentState!.validate();
-
-    if (!isValid || !_isLogin && _selectedImage == null) {
-      return;
-    }
-
-    if (isValid) {
-      _key.currentState!.save();
-      setState(() {
-        _loading = true;
-      });
-      final Users user = Users(
-        email: _enteredEmail,
-        password: _enteredPassword,
-        username: _enteredUsername,
-        selectedImage: _selectedImage,
-        color: RandomColors.getRandomColor(),
-        department: _enteredDepartment,
-      );
-      final auth = Auth(user: user);
-
-      if (_isLogin) {
-        final result = await auth.signIn();
-        setState(() {
-          _loading = false;
-        });
-        if (result == 'success' && context.mounted) {
-          Navigator.of(context).pushReplacementNamed('/main-screen');
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(result),
-              backgroundColor: Theme.of(context).colorScheme.error,
-            ),
-          );
-        }
-      } else {
-        final result = await auth.signUp();
-        setState(() {
-          _loading = false;
-        });
-        if (result == 'success' && context.mounted) {
-          Navigator.of(context).pushReplacementNamed('/main-screen');
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(result.toString()),
-              backgroundColor: Theme.of(context).colorScheme.error,
-            ),
-          );
-        }
-      }
-    }
-  }
 
   bool test = false;
 
@@ -259,5 +203,61 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
             ),
     );
+  }
+
+  void _isSubmit() async {
+    final isValid = _key.currentState!.validate();
+
+    if (!isValid || !_isLogin && _selectedImage == null) {
+      return;
+    }
+
+    if (isValid) {
+      _key.currentState!.save();
+      setState(() {
+        _loading = true;
+      });
+      final Users user = Users(
+        email: _enteredEmail,
+        password: _enteredPassword,
+        username: _enteredUsername,
+        selectedImage: _selectedImage,
+        color: RandomColors.getRandomColor(),
+        department: _enteredDepartment,
+      );
+      final auth = Auth(user: user);
+
+      if (_isLogin) {
+        final result = await auth.signIn();
+        setState(() {
+          _loading = false;
+        });
+        if (result == 'success' && context.mounted) {
+          Navigator.of(context).pushReplacementNamed('/main-screen');
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(result),
+              backgroundColor: Theme.of(context).colorScheme.error,
+            ),
+          );
+        }
+      } else {
+        final result = await auth.signUp();
+        setState(() {
+          _loading = false;
+        });
+        if (result == 'success' && context.mounted) {
+          Navigator.of(context).pushReplacementNamed('/main-screen');
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(result.toString()),
+              backgroundColor: Theme.of(context).colorScheme.error,
+            ),
+          );
+        }
+      }
+    }
   }
 }

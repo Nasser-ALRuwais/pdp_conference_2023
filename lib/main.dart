@@ -2,10 +2,7 @@ import 'package:pdp_conference_2023/screen/sign_in.dart';
 import 'package:pdp_conference_2023/screen/sign_up.dart';
 
 import './screen/main_screen.dart';
-import './screen/main_screen1.dart' as main_screen1;
-
 import './screen/auth_screen.dart';
-import './screen/chat.dart';
 import './screen/splash.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +29,6 @@ class App extends StatelessWidget {
       title: 'FlutterChat',
       theme: ThemeData(fontFamily: "Spline Sans").copyWith(
         useMaterial3: true,
-
         colorScheme: const ColorScheme(
           brightness: Brightness.dark,
           primary: Color(0xFF020F29),
@@ -46,6 +42,24 @@ class App extends StatelessWidget {
           surface: Color(0xFFFFF9E8),
           onSurface: Colors.black,
         ),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: const BorderSide(width: 2, color: Color(0xffafb0b5)),
+          ),
+          filled: true,
+          fillColor: Colors.white,
+          isDense: true,
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: const BorderSide(width: 2, color: Color(0xffafb0b5)),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: const BorderSide(width: 2, color: Color(0xffafb0b5)),
+          ),
+        ),
+
         //ColorScheme.fromSeed(seedColor: const Color.fromRGBO(2, 15, 41, 1.0)),
       ),
       home: StreamBuilder(
@@ -55,19 +69,15 @@ class App extends StatelessWidget {
             return const SplashScreen();
           }
           return snapshot.data != null
-              ? const main_screen1.MainScreen()
+              ? const MainScreen()
               : const AuthScreen();
         },
       ),
       routes: {
         MainScreen.routeName: (context) => const MainScreen(),
         AuthScreen.routeName: (context) => const AuthScreen(),
-        ProfileScreen.routeName: (context) => const ProfileScreen(),
-        ChatScreen.routeName: (context) => const ChatScreen(),
         SignInScreen.routeName: (context) => const SignInScreen(),
         SignUpScreen.routeName: (context) => const SignUpScreen(),
-        main_screen1.MainScreen.routeName: (context) =>
-            const main_screen1.MainScreen(),
       },
     );
   }
